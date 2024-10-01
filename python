@@ -1,0 +1,186 @@
+import csv
+
+username = ""
+password = ""
+
+# File path to store
+STUDENT_DATA_FILE = "Data_Of_St.csv"
+
+
+def mainmenu():
+    print("彡☆彡☆彡☆彡☆彡☆MAIN MENU彡☆彡☆彡☆彡☆彡☆")
+    print("1: Enter Student details☆")
+    print("2: View Student details☆")
+    print("3: Search by ID number☆")
+    print("4: Produce Reports☆")
+    print("0: Quit/Log Out☆")
+    return input("Please enter your choice: ")
+
+
+# Function to log in
+def login():
+    global username, password
+
+    if not username:
+        username = input("Set your username: ")
+        password = input("Set your password: ")
+        print("Username and password set successfully!☆\n")
+
+    input_username = input("Enter username: ")
+    input_password = input("Enter password: ")
+
+    if input_username == username and input_password == password:
+        print("Login successful!☆")
+        return True
+    else:
+        print("Invalid username or password. Please try again.")
+        return False
+
+# Function to enter and store student details
+def enter_student_details():
+    # Prompt the user to input all the required fields
+    student_id = input("Enter ID: ")
+    surname = input("Enter surname: ")
+    forename = input("Enter forename: ")
+    dob = input("Enter Date of Birth (Format: dd/mm/yy): ")
+    address = input("Enter first line of address: ")
+    postcode = input("Enter Postcode: ")
+    gender = input("Enter Gender: ")
+    tutor_group = input("Enter Tutor Group: ")
+    email = input("Enter email address: ")
+
+    # Code to save the student details to a file
+    with open("Data_Of_St.csv", 'a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(['ID','SNAME','FNAME', 'DOB','ADDRESS','PCODE','GENDER','TGROUP','EMAIL'])
+        writer.writerow([student_id, surname,forename , dob, address, postcode, gender, tutor_group, email])
+    print("Student details saved successfully!")
+
+
+# Function to view all student details
+def view_all_student_details():
+    print("All Student details:")
+    # Code to read and display all student details from the file
+    with open("Data_Of_St.csv", 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            print(row)
+
+
+# Function to search for a student by ID
+def search_by_id():
+    student_id = input("Enter student ID: ")
+    with open("Data_Of_St.csv", mode='r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            if row[0] == student_id:
+                print("ID:", row[0])
+                print("Surname:", row[1])
+                print("First Name:", row[2])
+                print("Date of Birth:", row[3])
+                print("Address:", row[4])
+                print("Postcode:", row[5])
+                print("Gender:", row[6])
+                print("Tutor Group:", row[7])
+                print("Email:", row[8])
+                return
+        print("Student ID not found.")
+
+
+# Function to produce reports menu
+def produce_reports_menu():
+    while True:
+        print("************PRODUCE REPORTS**************")
+        print("1: View all student details")
+        print("2: List of Males + Email")
+        print("3: List of Females + Email")
+        print("4: Search by D.O.B + Address")
+        print("5: Quit/Log Out")
+        choice = input("Please enter your choice: ")
+
+        if choice == "1":
+            view_all_student_details()
+        elif choice == "2":
+            list_males_with_email()
+        elif choice == "3":
+            list_females_with_email()
+        elif choice == "4":
+            search_by_dob_and_address()
+        elif choice == "5":
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+
+# Function to list males with email
+def list_males_with_email():
+    print("Males with Email:")
+    with open("Data_Of_St.csv", 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            if len(row) >= 9 and row[6].lower() == 'male':
+                print(row[2], row[8])
+
+
+
+# Function to list females with email
+def list_females_with_email():
+    print("Females with Email:")
+    # Code to read and display details of female students with their email addresses from the file
+    with open("Data_Of_St.csv", 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            if len(row) >= 9 and row[6].lower() == 'female':
+                print(row[2], row[8])
+
+
+
+# Function to search by date of birth and address
+def search_by_dob_and_address():
+    dob = input("Enter Date of Birth to search (Format: dd/mm/yy): ")
+    address = input("Enter address to search: ")
+    found = False
+    # Code to search for students by date of birth and address and display their details if found
+    with open("Data_Of_St.csv", 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            if len(row) >= 9 and row[3] == dob and row[4] == address:
+                print("Student details found:")
+                print(row)
+                found = True
+
+    if not found:
+        print("No student found with the given Date of Birth and address.")
+
+
+# Main program loop
+def mainmen():
+    while not login():
+        pass
+
+    while True:
+        choice = mainmenu()
+        if choice == '1':
+            enter_student_details()
+
+        elif choice == '2':
+            view_all_student_details()
+
+        elif choice == '3':
+            search_by_id()
+
+        elif choice == '4':
+            produce_reports_menu()
+
+        elif choice == '0':
+            print("Logged out.")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+
+
+if __name__ == "__main__":
+    mainmen()
+
+
