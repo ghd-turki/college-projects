@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="js/navscript.js" defer></script>
+    <script src="js/adoptionjs.js" defer></script>
+    <title>Fluffy Tails</title>
+    <link rel="icon" href="image/icon_30px.png" type="image/x-icon" />
+</head>
+<body class="body_pink">
+    <!----------Navigation bar start --------->
+    <div>
+        <nav class="navbar_pages">
+            <div class="logo"><img src="image/icon_60px.png" alt="fluffy tails" height="45px" width="45px"> Fluffy Tails</div>
+                <a href="#" class="hamburger">
+                    <span class="hamburger_line"></span>
+                    <span class="hamburger_line"></span>
+                    <span class="hamburger_line"></span>
+                </a>
+            <div class="nav_menu">
+                <ul>
+                    <li class="nav_menu_link"><a  href="index.html">Home</a></li>
+                    <li class="nav_menu_link"><a  href="Adoption.html ">Adoption </a></li>
+                    <li class="nav_menu_link"><a  href="lost.html">Missing Bunnies</a></li>
+                    <li class="nav_menu_link"><a  href="store.html">Store</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!---------- Navigation bar Ends --------->
+    <!-------------Intro section-------------->
+
+    <section id="intro">
+        <div class="title_panel">
+            <h2 class="title">
+                <img src="image/icon_60px.png" height="40px" width="40px">
+                Missing & Reunited Bunnies
+                <img src="image/icon_60px.png" height="40px" width="40px">
+            </h2>
+            <p class="title_p"> We help bring your lost bunnies home.</p>
+        </div>
+    </section>
+    
+    <!-----------Intro section Ends----------->
+    <!-----------Lost bunnies section--------->
+    <h2 class="section_title">Recently Reported Missing</h2>
+    <section id="lost">  
+        <div class="card">  
+            <img src="image/bb1.jpg" alt="Brown bunny with black eyes">
+            <h3 >Jerry</h3> 
+            <p><strong class="card_text">Last Seen:</strong> Almousa park, Rakkah.</p>
+            <p><strong class="card_text">Description: </strong>  brown bunny with black eyes.</p>    
+        </div>
+        <div class="card">
+            <img src="image/bb2.jpg" alt="White bunny with black eyes" >
+            <h3>Snow</h3>
+            <p><strong class="card_text">Last Seen:</strong> Alnoras park, Rakkah.</p>
+            <p><strong class="card_text">Description:</strong>  white bunny with black eyes.</p>
+        </div>
+        <div class="card">
+            <img src="image/mix1.jpg" alt="White and black bunny with blue eyes">
+            <h3>Oreo</h3>
+            <p><strong class="card_text">Last Seen:</strong> King Fahad park, Dammam.</p>
+            <p><strong class="card_text">Description:</strong> Black and white bunny with blue eyes.</p>
+        </div>   
+    </section>
+    <!-------Lost bunnies section Ends-------->
+    <!----------Found bunnies section--------->
+    <h2 class="section_title">Recently Reported Found</h2>
+    <section class="found-bunnies">
+        <section id="lost">  
+            <div class="card">  
+                <img src="image/bb7.jpg" alt="small white bunny with black eyes and black ears">
+                <h3>Rosy</h3> 
+                <p><strong class="card_text">Seen:</strong> Alkhobar lakes, Alkhobar.</p>
+                <p><strong class="card_text">Description: </strong>  small white bunny with black eyes and ears.</p>    
+            </div>
+            <div class="card">
+                <img src="image/bb8.jpg" alt="orange bunny with black eyes">
+                <h3>Oskar</h3>
+                <p><strong class="card_text">Seen:</strong>  Salsabeel park, Dammam.</p>
+                <p><strong class="card_text">Description:</strong>  orange bunny with black eyes.</p>
+            </div>
+            <div class="card">
+                <img src="image/bb6.jpg" alt="White bunny with black eyes and pink ears">
+                <h3>Lily</h3>
+                <p><strong class="card_text">Seen:</strong> Modon lake park, Dammam.</p>
+                <p><strong class="card_text">Description:</strong> White bunny with black eyes and pink ears.</p>
+            </div>     
+        </section>
+    </section>
+    <!-------Lost bunnies section Ends-------->
+    <!-------Lost/found bunnies section------->
+    <div class="form_container">
+        <div class="img_adopt">
+            <img src="image/bunny3.png" alt="cute gray bunny"  width="500" 
+            height="500"/>
+        </div>
+        
+        <form class="form_l" action="mailto:fluffy.tails1111@gmail.com" method="POST" class="bunny-form">
+            <h3 class="form_title">Report a missing or found bunny</h3>
+            <div class="form_group">
+                <label  class="form_label" for="type">Type:</label>
+                <select  class="form_input" id="type" name="type" style="width: 313px;">
+                    <option value="lost">Lost</option>
+                    <option value="found">Found</option>
+                </select>
+            </div>
+            <div class="form_group">
+                <label class="form_label"  for="name">Bunny's Name:</label>
+                <input class="form_input"  type="text" id="name" name="name" placeholder="Bunny's name (if known)">
+            </div>
+            <div class="form_group">
+                <label class="form_label" for="description">Description:</label> 
+                <input class="form_input"  type="text" id="description" name="description" size="35"  placeholder="Describe the bunny" required></textarea>
+            </div>
+            <div class="form_group">
+                <label class="form_label" for="last-seen">Last Seen Location:</label>
+                <input class="form_input"  type="text" id="last-seen" name="last_seen"  placeholder="Last seen location" required>
+            </div>
+            <div class="form_group">
+                <label class="form_label" for="date">Date:</label> 
+                <input class="form_input"  type="date" id="date" name="date" required>
+            </div>
+            <div class="form_group">
+                <label class="form_label" for="photo">Upload Photo:</label> 
+                <input  class="form_input" type="file" id="photo" name="photo" accept="image/*">
+            </div>
+            <div class="form_group">
+                <label class="form_label" for="contact">Contact Info:</label> 
+                <input class="form_input"  type="text" id="contact" name="contact"  placeholder="Phone number or email" required>
+            </div>
+            <button class="submit_button" type="submit"  >Submit</button>
+        </form>
+    </div>
+    <!----Lost/found bunnies section ends----->
+    <img id="back-to-top" src="image/up.gif" alt="Scroll to Top" />
+
+    <!--footer begin-->
+        <footer>
+            <div class="copyright">
+                <div class="socialMedia">
+                    <p>
+                        <a class="location" href="https://maps.app.goo.gl/RCrNtVXJvejiAwBP8">
+                            <img src="image/location.png" height="20px" width="20px">Our Location
+                        </a>
+                    </p>
+                </div>
+                <p>© 2024 1-200-FLUFFY_TAILS.com, Inc. | Al Khobar, KSA</p> 
+                <a href="mailto: fluffy.tails1@hotmail.com"style="text-decoration: none;"><img class="img_icon" src="image/mail.png" alt="email" width="20" height="20"></a>
+                <a href="https://www.twitter.com"style="text-decoration: none;"><img class="img_icon" src="image/twitter.png" alt="twitter" width="20" height="20"></a>
+                <a href="https://www.facebook.com/"style="text-decoration: none;"><img class="img_icon" src="image/facebook.png" alt="facebook" width="20" height="20"> </a>
+                <a href="https://www.instagram.com" style="text-decoration: none;"><img class="img_icon" src="image/instagram.png" alt="instagram" width="20" height="20"></a>
+            </div>
+            <img src="image/ears2.gif" height="100px" width="80px">
+        </footer>
+    <!--footer ends-->
+</body>
+</html>
